@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express();
+const dotenv = require("dotenv").config({path: '../.env'})
+const port = process.env.PORT
+
 app.set("view engine", "ejs")
 
-app.get("/", (req,res)=>{
-    res.send("Heyyo")
-})
+app.use("/", require("./routes/userRoutes"))
 
-app.listen(3000, () => {
-  console.log("Listening on port");
+app.listen(port, () => {
+  console.log(`Server started on port: ${port}`);
 });
