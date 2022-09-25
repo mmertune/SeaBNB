@@ -9,6 +9,9 @@ const getAllUsers = (req, res) => {
 //@route    POST /api/user/
 //@access   Private
 const addUser = (req, res) => {
+  if(!req.body.name){
+    res.status(400).json({message:"please add a field for body"})
+  }
   res.status(200).json({ message: " Adding a new user" });
 };
 

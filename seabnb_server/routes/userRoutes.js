@@ -9,12 +9,12 @@ const {
 } = require("../controllers/userController");
 
 router
-  .route("/api/users")
+  .route("/")
   .get(getAllUsers)
   .post(addUser);
 
 router
-  .route("/api/users/:id")
+  .route("/:id")
   .get(getUser)
   .put(updateUser)
   .delete(deleteUser);
