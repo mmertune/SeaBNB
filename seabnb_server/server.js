@@ -1,11 +1,19 @@
 const express = require("express");
+const dotenv = require("dotenv").config({path: '../.env'})
+const connectDB = require(`./config/db`)
+
+const port = process.env.PORT
 const app = express();
-app.set("view engine", "ejs")
 
-app.get("/", (req,res)=>{
-    res.send("Heyyo")
-})
+//connect to mongoDB database
+connectDB()
 
-app.listen(3000, () => {
-  console.log("Listening on port");
+//middleware
+app.use(express.json())
+app.use(express.urlencoded({extended:"false"}))
+
+app.use("/api/users/", require("./routes/userRoutes"))
+
+app.listen(port, () => {
+  console.log(`Server started on port: ${port}`);
 });
