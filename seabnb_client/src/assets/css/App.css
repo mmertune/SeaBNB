@@ -2,14 +2,17 @@
     display: grid;
     grid-template-rows: 10vh repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
-    padding: 0 60px;
   }
-  .gridHeader{
+  .gridHeaderItem{
     grid-column: 1/-1;
     grid-row: 1;
     z-index: 100;
+    border-bottom: black solid 1px;
+    padding: 0 40px;
   }
-  .gridBody{
+  .gridBodyItem{
     grid-column: 1/-1;
     grid-row: 2/-1;
+    padding: 20px 40px;
+
   }

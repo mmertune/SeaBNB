@@ -14,10 +14,10 @@ const Header = () => {
     console.log("Submitted")
   }
   return (
-    <header className="header gridHeader">
+    <header className="header gridHeaderItem">
       <div className="header_logoContainer">
         <MainLogo />
-        <span className="header_logoText">seabnb</span>
+        <h1 className="header_logoText">seabnb</h1>
       </div>
       <div className="header_searchContainer" >
         <form action="submit" onSubmit={submitSearch} className="header_form">
