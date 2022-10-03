@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import testImage from "../assets/images/house1.jpeg";
 import "../assets/css/Card.css";
 import { GiRoundStar as RatingStar } from "react-icons/gi";
 
-const Card = () => {
+const Card = ({city, stateAbbrv,rating,address,pricePerNight}) => {
+
   return (
     <div className="card">
       <div className="card_ImgContainer">
@@ -12,15 +13,15 @@ const Card = () => {
       <div className="card_TextContainer">
         <div className="card_locationInfo">
           <div className="card_LocationRating">
-            <h2 className="card_Location">Miami, FL</h2>
+            <h2 className="card_Location">{city}, {stateAbbrv}</h2>
             <div className="card_RatingContainer">
-              <RatingStar /> <span className="card_Rating">4.32</span>
+              <RatingStar /> <span className="card_Rating">{rating}</span>
             </div>
-        </div>
-        <p className="card_Distance">190 miles</p>
+          </div>
+          <p className="card_Distance">{address} miles</p>
         </div>
 
-        <p className="card_Price">$130 per night</p>
+        <p className="card_Price">${pricePerNight} per night</p>
       </div>
     </div>
   );
