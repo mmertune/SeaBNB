@@ -4,15 +4,14 @@ import { RiShip2Line as MainLogo} from "react-icons/ri";
 import { IoSearchOutline as SearchIcon } from "react-icons/io5";
 import { TbMinusVertical as VerticalLine } from "react-icons/tb";
 import { VscMenu as BurgerMenu} from "react-icons/vsc";
-
 import "../assets/css/Header.css"
 
 const Header = () => {
-  
   const submitSearch = (event)=>{
     event.preventDefault()
     console.log("Submitted")
   }
+
   return (
     <header className="header gridHeaderItem">
       <div className="header_logoContainer">
