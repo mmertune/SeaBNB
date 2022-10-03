@@ -14,7 +14,7 @@ const getAllUsers = asyncHandler(async (req, res) => {
 //@access   Private
 const addUser = asyncHandler(async (req, res) => {
   if (!(req.body.firstname && req.body.lastname && req.body.email)) {
-    res.status(400).json({ message: "please add a field for body" });
+    res.status(400).json({ message: "please add all fields for body" });
   }
   const user = await User.create({
     firstname: req.body.firstname,
