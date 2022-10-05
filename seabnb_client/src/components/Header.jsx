@@ -6,10 +6,17 @@ import { TbMinusVertical as VerticalLine } from "react-icons/tb";
 import { VscMenu as BurgerMenu} from "react-icons/vsc";
 import "../assets/css/Header.css"
 
+import { useSelector, useDispatch } from "react-redux";
+import { toggleModal } from "../redux/modalSlice";
+
 const Header = () => {
+  const {visible} = useSelector((store)=>store.modal)
+  const dispatch = useDispatch()
+
   const submitSearch = (event)=>{
     event.preventDefault()
     console.log("Submitted")
+    dispatch(toggleModal())
   }
 
   return (

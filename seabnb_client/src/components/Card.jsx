@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import testImage from "../assets/images/house1.jpeg";
 import "../assets/css/Card.css";
 import { GiRoundStar as RatingStar } from "react-icons/gi";
