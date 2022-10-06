@@ -18,9 +18,9 @@ const LoginModal = () => {
   };
 
   return (
-    <div className={`loginmodal ${loginVisible ? "" : "loginmodal_hide"}`}>
+    <div className={`loginmodal modal ${loginVisible ? "" : "modal_hide"}`}>
       <div
-        className="loginmodal_background"
+        className="modal_background"
         onClick={() => dispatch(toggleLoginModal())}
       ></div>
       <form className="loginmodal_form">

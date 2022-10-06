@@ -12,6 +12,11 @@ import { toggleLoginModal, toggleSideModal, toggleSignupModal } from "../redux/m
 const Header = () => {
   const dispatch = useDispatch();
 
+  const submitForm = (event)=>{
+event.preventDefault()
+  console.log("Subitted Form")
+  }
+
   const displayLoginModal = () => {
     dispatch(toggleLoginModal())
     console.log("Login Popup");
@@ -40,7 +45,7 @@ const Header = () => {
             <input type="text" placeholder="When?" />
             <VerticalLine />
             <input type="text" placeholder="How many?" />
-            <button className="header_button">
+            <button className="header_button" onClick={submitForm}>
               <SearchIcon />
             </button>
           </label>

@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
 
 const SideModal = () => {
   return (
-    <div>SideModal</div>
-  )
-}
+    <div className="sidemodal modal">
+      <div className="modal_background"></div>
+      <aside>
+        
+      </aside>
+    </div>
+  );
+};
 
-export default SideModal
+export default SideModal;
