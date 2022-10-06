@@ -1,21 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-const initialState={
-    visible:false,
-}
+const initialState = {
+  loginVisible: false,
+  sideVisible: false,
+  signupVisible: false,
+};
 
 const modalSlice = createSlice({
-
-    name:"modal",
-    initialState,
-    reducers:{
-       toggleModal: (state)=>{
-            state.visible = !state.visible
-       }
-    }
-})
+  name: "modal",
+  initialState,
+  reducers: {
+    toggleLoginModal: (state) => {
+      state.loginVisible = !state.loginVisible;
+    },
+    toggleSideModal: (state) => {
+      state.sideVisible = !state.sideVisible;
+    },
+    toggleSignupModal: (state) => {
+      state.signupVisible = !state.signupVisible;
+    },
+  },
+});
 // console.log(modalSlice);
 
-export const {toggleModal} = modalSlice.actions
-export default modalSlice.reducer
+export const { toggleLoginModal, toggleSideModal, toggleSignupModal } = modalSlice.actions;
+export default modalSlice.reducer;

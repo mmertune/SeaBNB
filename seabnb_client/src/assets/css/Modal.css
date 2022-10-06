@@ -1,0 +1,69 @@
+/* General Modal Styles */
+.modal_background {
+  background-color: rgba(0, 0, 0, 0.5);
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+}
+
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: grid;
+}
+
+.modal_hide {
+  display: none;
+}
+
+/* Login Modal */
+.loginmodal {
+  grid-template-columns: 20vw 1fr 20vw;
+  grid-template-rows: 20vh 1fr 20vh;
+}
+
+.loginmodal_form {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.loginmodal_bttnContainer {
+  display: flex;
+}
+
+/* Sign Up Modal */
+.signupmodal {
+  grid-template-columns: 20vw 1fr 20vw;
+  grid-template-rows: 20vh 1fr 20vh;
+}
+
+.signup_form {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.signup_bbtnContainer {
+  display: flex;
+}
+
+/* Side Modal */
+.sidemodal{
+  grid-template-columns: 1fr 30vw;
+  grid-template-rows: 1fr;
+}
+.sidemodal_sideContainer {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue;
+}
