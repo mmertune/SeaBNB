@@ -1,74 +1,69 @@
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
-//@desc     Get all users
-//@route    GET /api/user/
+//@desc     Register a User
+//@route    POST /api/user/register
 //@access   Private
-const getAllUsers = asyncHandler(async (req, res) => {
-  const users = await User.find();
-  res.status(200).json(users);
-});
-
-//@desc     Add a user
-//@route    POST /api/user/
-//@access   Private
-const addUser = asyncHandler(async (req, res) => {
-  if (!(req.body.firstname && req.body.lastname && req.body.email)) {
-    res.status(400).json({ message: "please add all fields for body" });
+const registerUser = asyncHandler(async (req, res) => {
+  const { name, email, password } = req.body;
+  if (!name || !email || !password) {
+    res.status(400);
+    throw new Error("Please add all fields");
   }
+  const userExist = await User.findOne({ email });
+
+  if (userExist) {
+    res.status(400);
+    throw new Error("User already exists");
+  }
+
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
   const user = await User.create({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    email: req.body.email,
+    name,
+    email,
+    password: hashedPassword,
   });
-  res.status(200).json(user);
+  if (user) {
+    res.status(201).json({
+      _id: user.id,
+      name: user.name,
+      email: user.email,
+      password: user.password,
+    });
+  }
 });
 
-//@desc     Get specific user
-//@route    GET /api/user/:id
+//@desc     Authenticate a User
+//@route    POST /api/login
 //@access   Private
-const getUser = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.params.id);
-  if (!user) {
+const authenticateUser = asyncHandler(async (req, res) => {
+  // res.status(200).json({ message: "Login User" });
+  const { email, password } = req.body;
+  const user = await User.findOne({ email });
+  if (user && (await bcrypt.compare(password, user.password))) {
+    res.json({
+      id_: user.id,
+      name: user.name,
+      email: user.email,
+    });
+  } else {
     res.status(400);
-    throw new Error("User not found");
+    throw new Error("Invalid Credentials");
   }
-
-  res.status(200).json(user);
 });
 
-//@desc     Update a user
-//@route    PUT /api/user/:id
+//@desc     Get User Info
+//@route    GET /api/me
 //@access   Private
-const updateUser = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.params.id);
-  if (!user) {
-    res.status(400);
-    throw new Error("User not found");
-  }
-  const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  });
-  res.status(200).json(updatedUser);
-});
-
-//@desc     Delete a user
-//@route    DELETE /api/user/:id
-//@access   Private
-const deleteUser = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.params.id);
-  if (!user) {
-    res.status(400);
-    throw new Error("User not found");
-  }
-  await user.remove();
-  res.status(200).json({ id: req.params.id });
+const getUserInfo = asyncHandler(async (req, res) => {
+  res.status(200).json({ message: "Get User Info" });
 });
 
 module.exports = {
-  getAllUsers,
-  addUser,
-  getUser,
-  updateUser,
-  deleteUser,
+  registerUser,
+  authenticateUser,
+  getUserInfo,
 };

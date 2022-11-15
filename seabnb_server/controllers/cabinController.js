@@ -24,7 +24,9 @@ const addCabin = asyncHandler(async (req, res) => {
       req.body.owner
     )
   ) {
-    res.status(400).json({ message: "please add all fields for body" });
+    res.status(400)
+    // .json({ message: "please add all fields for body" });
+    throw new Error("please add all fields for body")
   }
   const cabin = await Cabin.create({
     city: req.body.city,
