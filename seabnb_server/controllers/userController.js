@@ -34,9 +34,9 @@ const registerUser = asyncHandler(async (req, res) => {
       password: user.password,
       token: generateToken(user._id),
     });
-  } else{
-    res.status(400)
-    throw new Error("Invalid user data")
+  } else {
+    res.status(400);
+    throw new Error("Invalid user data");
   }
 });
 
@@ -65,13 +65,13 @@ const authenticateUser = asyncHandler(async (req, res) => {
 //@access   Private
 const getUserInfo = asyncHandler(async (req, res) => {
   // res.status(200).json({ message: "Get User Info" });
-  const {_id, name, email} = await User.findById(req.user.id)
+  const { _id, name, email } = await User.findById(req.user.id);
 
   res.status(200).json({
-    id:_id,
-    name, 
-    email
-  })
+    id: _id,
+    name,
+    email,
+  });
 });
 
 // Generate JWT
