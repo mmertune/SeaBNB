@@ -1,4 +1,8 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { register, reset } from "../redux/authSlice";
 
 const Signup = () => {
   const [credentials, setCredentials] = useState({
@@ -8,8 +12,32 @@ const Signup = () => {
     password2: "",
   });
   const { name, email, password, password2 } = credentials;
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const {user, isLoading, isError, isSuccess, message} = useSelector((state)=>state.auth)
+
+useEffect(()=>{
+  if(isError){
+    toast.error(message)
+  }
+  if(isSuccess || user){
+    navigate('/')
+  }
+  dispatch(reset())
+},[user,isError,isSuccess,message,navigate,dispatch])
+
   const submitForm = (event) => {
     event.preventDefault();
+    if (password !== password2){
+      toast.error("passwords don't match")
+    } else{
+      const userdata = {
+        name,
+        email,
+        password
+      }
+      dispatch(register(userdata))
+    }
   };
   const saveInput = (event) => {
     setCredentials((prevState) => ({
@@ -18,6 +46,10 @@ const Signup = () => {
     }));
   };
   console.log(credentials);
+
+  if(isLoading){
+    return <div>is Loading</div>;
+  }
   return (
     <main>
       <h1>Sign Up</h1>

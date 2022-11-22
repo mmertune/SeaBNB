@@ -1,4 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { login, reset } from "../redux/authSlice";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -6,16 +10,42 @@ const Login = () => {
     password: "",
   });
   const { email, password } = credentials;
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+    if (isSuccess || user) {
+      navigate("/");
+    }
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
+
   const submitForm = (event) => {
     event.preventDefault();
+
+    const userdata = {
+      email,
+      password,
+    };
+    dispatch(login(userdata));
   };
+
   const saveInput = (event) => {
     setCredentials((prevState) => ({
       ...prevState,
-      [event.target.name] : event.target.value,
+      [event.target.name]: event.target.value,
     }));
   };
-console.log(credentials)
+
+  if (isLoading) {
+    return <div>is Loading</div>;
+  }
   return (
     <main>
       <h1>Login</h1>
