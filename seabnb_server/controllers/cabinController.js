@@ -67,13 +67,12 @@ const updateCabin = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Cabin not found");
   }
-  const user = await User.findById(req.user.id);
-  if (!user) {
+  if (!req.user) {
     res.status(401);
     throw new Error("User not Found");
   }
   // makes sure the logged in user matches the cabin owner
-  if (cabin.owner.toString() !== user.id) {
+  if (cabin.owner.toString() !== req.user.id) {
     res.status(401);
     throw new Error("User not Authorized");
   }
@@ -92,13 +91,12 @@ const deleteCabin = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Cabin not found");
   }
-  const user = await User.findById(req.user.id);
-  if (!user) {
+  if (!req.user) {
     res.status(401);
     throw new Error("User not Found");
   }
   // makes sure the logged in user matches the cabin owner
-  if (cabin.owner.toString() !== user.id) {
+  if (cabin.owner.toString() !== req.user.id) {
     res.status(401);
     throw new Error("User not Authorized");
   }

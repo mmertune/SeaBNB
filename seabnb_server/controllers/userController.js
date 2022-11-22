@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 //@desc     Register a User
-//@route    POST /api/user/register
+//@route    POST /api/users/register
 //@access   Private
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
@@ -34,14 +34,14 @@ const registerUser = asyncHandler(async (req, res) => {
       password: user.password,
       token: generateToken(user._id),
     });
-  } else{
-    res.status(400)
-    throw new Error("Invalid user data")
+  } else {
+    res.status(400);
+    throw new Error("Invalid user data");
   }
 });
 
 //@desc     Authenticate a User
-//@route    POST /api/login
+//@route    POST /api/users/login
 //@access   Private
 const authenticateUser = asyncHandler(async (req, res) => {
   // res.status(200).json({ message: "Login User" });
@@ -61,17 +61,11 @@ const authenticateUser = asyncHandler(async (req, res) => {
 });
 
 //@desc     Get User Info
-//@route    GET /api/me
+//@route    GET /api/users/me
 //@access   Private
 const getUserInfo = asyncHandler(async (req, res) => {
   // res.status(200).json({ message: "Get User Info" });
-  const {_id, name, email} = await User.findById(req.user.id)
-
-  res.status(200).json({
-    id:_id,
-    name, 
-    email
-  })
+  res.status(200).json(req.user);
 });
 
 // Generate JWT
