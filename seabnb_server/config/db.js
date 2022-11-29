@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 
 require("dotenv").config();
-const mongoURI = process.env.MONGO_URI;
+const mongoURI =
+  // process.env.MONGO_URI ||
+  "mongodb+srv://seabnb_admin:B0otL3ga1rb&B@seabnb-cluster.xnyxbhe.mongodb.net/seabnb_DB?&w=majority";
 
 const connectDB = async () => {
   try {
