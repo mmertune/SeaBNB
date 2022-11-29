@@ -1,4 +1,4 @@
-import { Home, Login, Signup } from "./pages";
+import { Home, Login, Signup, Dashboard } from "./pages";
 import { Header } from "./components";
 import { Route, Routes } from "react-router-dom";
 import "./assets/css/App.css";
@@ -14,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
       <LoginModal />
       <SignupModal />

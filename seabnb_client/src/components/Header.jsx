@@ -24,11 +24,11 @@ const Header = () => {
     console.log("Subitted Form");
   };
 
-  const logoutUser = ()=>{
-    dispatch(logout())
-    dispatch(reset())
-    navigate("/")
-  }
+  const logoutUser = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate("/");
+  };
 
   // const displayLoginModal = () => {
   //   dispatch(toggleLoginModal());
@@ -73,11 +73,18 @@ const Header = () => {
 /> */}
         <ul>
           {user ? (
-            <li>
-              <button className={"header_logout"} onClick={logoutUser}>
-                Logout
-              </button>
-            </li>
+            <>
+              <li>
+                <button className={"header_logout"} onClick={logoutUser}>
+                  Logout
+                </button>
+              </li>
+              <li>
+                <Link to="/dashboard" className={"header_dashboard"}>
+                  Dashboard
+                </Link>
+              </li>
+            </>
           ) : (
             <>
               <li>
