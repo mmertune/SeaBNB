@@ -9,7 +9,7 @@ const initialState = {
   user: user ? user : null,
   isError: false,
   isSuccess: false,
-  isLoading: false,
+  isLoading: true,
   message: "",
 };
 

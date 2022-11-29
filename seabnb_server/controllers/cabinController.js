@@ -7,7 +7,7 @@ const User = require("../models/userModel");
 //@access   Private
 const getAllCabins = asyncHandler(async (req, res) => {
   const cabins = await Cabin.find();
-  res.status(200).send(cabins);
+  res.status(200).json(cabins);
 });
 
 //@desc     Get all specific user cabins
@@ -15,7 +15,7 @@ const getAllCabins = asyncHandler(async (req, res) => {
 //@access   Private
 const getUserCabins = asyncHandler(async (req, res) => {
   const cabins = await Cabin.find({ owner: req.user.id });
-  res.status(200).send(cabins);
+  res.status(200).json(cabins);
 });
 
 //@desc     Add new cabin
