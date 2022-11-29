@@ -1,7 +1,6 @@
 {
   "name": "seabnb_client",
   "version": "0.1.0",
-  "proxy": "https://seabnb-production.up.railway.app/",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
