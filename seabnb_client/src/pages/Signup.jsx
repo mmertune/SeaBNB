@@ -2,6 +2,7 @@ import { useState , useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Spinner } from "../components";
 import { register, reset } from "../redux/authSlice";
 
 const Signup = () => {
@@ -48,7 +49,7 @@ useEffect(()=>{
   console.log(credentials);
 
   if(isLoading){
-    return <div>is Loading</div>;
+    return <Spinner />;
   }
   return (
     <main>
