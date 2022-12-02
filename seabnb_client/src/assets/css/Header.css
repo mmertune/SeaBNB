@@ -72,13 +72,23 @@
   margin-right: 2px;
 }
 .header_login,
-.header_signup {
+.header_signup,
+.header_dashboard {
   /* margin-right: 10px; */
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
   color: black;
+}
+
+.header_logout {
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
 }
 
 .header_burgerMenu {
@@ -95,7 +105,9 @@
 ****************/
 @media screen and (max-width: 650px) {
   .header_login,
-  .header_signup {
+  .header_signup,
+  .header_dashboard,
+  .header_logout {
     display: none;
   }
   .header_burgerMenu {
@@ -113,7 +125,7 @@
   .header_inputSeparator {
     display: none;
   }
-  .header_logoText{
+  .header_logoText {
     display: none;
   }
   .header_logoItem {
@@ -132,7 +144,9 @@
     width: 5rem;
   }
   .header_login,
-  .header_signup {
+  .header_signup,
+  .header_dashboard,
+  .header_logout {
     display: none;
   }
   .header_burgerMenu {
