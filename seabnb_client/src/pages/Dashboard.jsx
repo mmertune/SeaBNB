@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { CabinForm, UserCabins } from "../components";
+import { CabinForm, Spinner, UserCabins} from "../components";
 import { getUserCabin, reset } from "../redux/cabinSlice";
 
 const Dashboard = () => {
@@ -29,7 +29,7 @@ const Dashboard = () => {
   }, [user, navigate, isError, message, dispatch]);
 
   if (isLoading) {
-    return <div>is Loading</div>;
+    return <Spinner />;
   } else
     return (
       <>

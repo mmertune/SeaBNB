@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../assets/css/Home.css";
-import { Card } from "../components";
+import { Card, Spinner } from "../components";
 import axios from "axios";
 
 const Home = () => {
@@ -27,7 +27,7 @@ const Home = () => {
   }, []);
 
   if (isLoading === true) {
-    return <div>is Loading</div>;
+    return <Spinner />
   }
   return (
     <div className="home gridBodyItem">

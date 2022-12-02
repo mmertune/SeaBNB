@@ -9,12 +9,43 @@ import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <div className="App">
-      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <Header search={true} />
+              <Home />
+            </>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <>
+              <Header search={false} />
+              <Login />
+            </>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <>
+              <Header search={false} />
+              <Signup />
+            </>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <>
+              <Header search={false} />
+              <Dashboard />
+            </>
+          }
+        />
       </Routes>
       <LoginModal />
       <SignupModal />
