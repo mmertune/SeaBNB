@@ -9,7 +9,6 @@ import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <div className="App">
-      <Header />
       <Routes>
         <Route
           path="/"

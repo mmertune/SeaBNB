@@ -52,7 +52,6 @@
 }
 .header_accountContainer {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -66,8 +65,8 @@
   justify-content: center;
   align-items: center; */
   cursor: pointer;
-  margin-right: 10px;
   margin-left: 20px;
+  font-size: 1.2rem;
 }
 .header_icon {
   margin-right: 2px;
@@ -78,13 +77,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 3px;
   text-decoration: none;
   color: black;
 }
 
 .header_burgerMenu {
-  display: flex;
+  display: none;
   align-items: center;
   border: none;
   background: none;
@@ -95,17 +93,66 @@
 /****************
 *   Phone View  *
 ****************/
-/* @media screen and (max-width: 500px) {} */
+@media screen and (max-width: 650px) {
+  .header_login,
+  .header_signup {
+    display: none;
+  }
+  .header_burgerMenu {
+    display: flex;
+  }
+  .header_formLabel > input {
+    width: 7rem;
+  }
+  .header_formLabel > input:nth-of-type(2) {
+    display: none;
+  }
+  .header_formLabel > input:nth-of-type(3) {
+    display: none;
+  }
+  .header_inputSeparator {
+    display: none;
+  }
+  .header_logoText{
+    display: none;
+  }
+  .header_logoItem {
+    /* font-size: 1.8rem; */
+  }
+  .header_listItem {
+    margin-left: 0;
+  }
+}
 
 /*****************
 *   Mobile View  *
 *****************/
-/* @media screen and (min-width: 501px) and (max-width: 767px) {} */
+@media screen and (min-width: 650px) and (max-width: 767px) {
+  .header_formLabel > input {
+    width: 5rem;
+  }
+  .header_login,
+  .header_signup {
+    display: none;
+  }
+  .header_burgerMenu {
+    display: flex;
+  }
+}
 
 /********************************
 *   Tablet / Small Laptop View  *
 ********************************/
 @media screen and (min-width: 768px) and (max-width: 1203px) {
+  .header_formLabel > input {
+    width: 6rem;
+  }
+  .header_listItem:nth-of-type(2) {
+    margin-left: 15px;
+  }
+  .header_listItem:nth-of-type(1) {
+    margin-left: 0;
+  }
 }
 
 /****************************

@@ -59,9 +59,9 @@ const Header = ({ search }) => {
           <form action="submit" className="header_form">
             <label className="header_formLabel">
               <input type="text" placeholder="Where?" />
-              <VerticalLine />
+              <VerticalLine className="header_inputSeparator"/>
               <input type="text" placeholder="Rating?" />
-              <VerticalLine />
+              <VerticalLine className="header_inputSeparator"/>
               <input type="text" placeholder="Price?" />
               <button className="header_button" onClick={submitForm}>
                 <SearchIcon />
@@ -110,9 +110,9 @@ const Header = ({ search }) => {
             </>
           )}
         </ul>
-        {/* <button className="header_burgerMenu" onClick={displaySideModal}>
+        <button className="header_burgerMenu" onClick={displaySideModal}>
           <BurgerMenu />
-        </button> */}
+        </button>
       </div>
     </header>
   );
