@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const SERVER_URL = "https://seabnb-production.up.railway.app/";
+// const SERVER_URL = "http://localhost:3010/";
 const API_CREATE_CABIN_URL = SERVER_URL + "api/cabins/";
 const API_GET_ALL_CABIN_URL = SERVER_URL + "api/cabins/";
 const API_GET_USER_CABIN_URL = SERVER_URL + "api/cabins/me";
