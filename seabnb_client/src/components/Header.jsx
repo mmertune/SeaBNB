@@ -4,12 +4,12 @@ import { RiShip2Line as MainLogo } from "react-icons/ri";
 import { IoSearchOutline as SearchIcon } from "react-icons/io5";
 import { TbMinusVertical as VerticalLine } from "react-icons/tb";
 import { VscMenu as BurgerMenu } from "react-icons/vsc";
-import { FiLogIn as LoginIcon } from "react-icons/fi";
+import { GoSignIn as LoginIcon } from "react-icons/go";
 import { GoSignOut as SignoutIcon } from "react-icons/go";
 import { RiAccountCircleLine as SignUpIcon } from "react-icons/ri";
 import { MdOutlineDashboard as DashboardIcon } from "react-icons/md";
 import "../assets/css/Header.css";
-import { Link, useNavigate, NavLink } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../redux/authSlice";
 import {

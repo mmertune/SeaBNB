@@ -89,6 +89,7 @@
   font-size: 1.2rem;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .header_burgerMenu {
