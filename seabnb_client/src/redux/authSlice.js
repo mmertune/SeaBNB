@@ -3,6 +3,7 @@ import axios from "axios";
 
 const user = JSON.parse(localStorage.getItem("user"));
 const SERVER_URL = "https://seabnb-production.up.railway.app/";
+// const SERVER_URL = "http://localhost:3010/";
 const API_RGSTR_USER_URL = SERVER_URL + "api/users/register/";
 const API_LOGIN_USER_URL = SERVER_URL + "api/users/login/";
 
