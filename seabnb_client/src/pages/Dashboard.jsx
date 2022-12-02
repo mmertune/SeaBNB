@@ -12,17 +12,17 @@ const Dashboard = () => {
   const { cabins, isLoading, isError, message } = useSelector(
     (state) => state.cabin
   );
-  console.log(cabins.length);
   useEffect(() => {
     if (isError) {
-      console.log(message);
+      dispatch(reset());
+    } else {
+      dispatch(reset());
     }
     if (!user) {
       navigate("/login");
     } else {
       dispatch(getUserCabin());
     }
-    // dispatch(getUserCabin());
     return () => {
       dispatch(reset());
     };
@@ -38,7 +38,7 @@ const Dashboard = () => {
         <section>
           {cabins.length > 0 ? (
             cabins.map((cabin) => {
-              return(<UserCabins key={cabin._id} cabin={cabin}/>)
+              return <UserCabins key={cabin._id} cabin={cabin} />;
             })
           ) : (
             <h3>No goals</h3>

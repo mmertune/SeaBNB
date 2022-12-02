@@ -2,8 +2,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const user = JSON.parse(localStorage.getItem("user"));
-const API_RGSTR_USER_URL = "api/users/register/";
-const API_LOGIN_USER_URL = "api/users/login/";
+const SERVER_URL = "https://seabnb-production.up.railway.app/";
+const API_RGSTR_USER_URL = SERVER_URL + "api/users/register/";
+const API_LOGIN_USER_URL = SERVER_URL + "api/users/login/";
 
 const initialState = {
   user: user ? user : null,
@@ -105,7 +106,7 @@ const authSlice = createSlice({
         state.isError = true;
         state.message = action.payload;
         state.user = null;
-      })
+      });
   },
 });
 

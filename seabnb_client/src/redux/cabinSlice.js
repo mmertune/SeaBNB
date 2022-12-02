@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_CREATE_CABIN_URL = "/api/cabins/";
-const API_GET_ALL_CABIN_URL = "/api/cabins/";
-const API_GET_USER_CABIN_URL = "/api/cabins/me";
-const API_DELETE_CABIN_URL = "/api/cabins/";
+const SERVER_URL = "https://seabnb-production.up.railway.app/";
+const API_CREATE_CABIN_URL = SERVER_URL + "api/cabins/";
+const API_GET_ALL_CABIN_URL = SERVER_URL + "api/cabins/";
+const API_GET_USER_CABIN_URL = SERVER_URL + "api/cabins/me";
+const API_DELETE_CABIN_URL = SERVER_URL + "api/cabins/";
 
 const initialState = {
   cabins: [],
