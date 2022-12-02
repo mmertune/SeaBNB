@@ -69,11 +69,11 @@ export const getAllCabins = createAsyncThunk(
   "cabin/getAllCabins",
   async (_, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token;
-      const config = {
-        headers: { Authorization: `Bearer ${token}` },
-      };
-      const response = await axios.get(API_GET_ALL_CABIN_URL, config);
+      // const token = thunkAPI.getState().auth.user.token;
+      // const config = {
+      //   headers: { Authorization: `Bearer ${token}` },
+      // };
+      const response = await axios.get(API_GET_ALL_CABIN_URL);
       return response.data;
     } catch (error) {
       const message =
