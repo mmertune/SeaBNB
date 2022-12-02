@@ -88,16 +88,16 @@ const Header = ({ search }) => {
           {user ? (
             <>
               <li className="header_listItem">
-                <button className="header_logout" onClick={logoutUser}>
-                  <SignoutIcon className="header_icon"/>
-                  <p>Logout</p>
-                </button>
-              </li>
-              <li className="header_listItem">
                 <Link to="/dashboard" className={"header_dashboard"}>
-                  <DashboardIcon className="header_icon"/>
+                  <DashboardIcon className="header_icon" />
                   <p>Dashboard</p>
                 </Link>
+              </li>
+              <li className="header_listItem">
+                <button className="header_logout" onClick={logoutUser}>
+                  <SignoutIcon className="header_icon" />
+                  <p>Logout</p>
+                </button>
               </li>
             </>
           ) : (

@@ -1,50 +1,42 @@
 import React, { useEffect, useState } from "react";
 import "../assets/css/Home.css";
 import { Card, Spinner } from "../components";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllCabins, reset } from "../redux/cabinSlice";
 import axios from "axios";
+// import { RiMessageFill } from "react-icons/ri";
 
 const Home = () => {
-  const [cardInfo, setCardInfo] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+  const { cabins, isLoading } = useSelector((state) => state.cabin);
 
-  const fetchCardInfo = async () => {
-    setIsLoading(true);
-    console.log("Mounting");
-    await axios
-      .get(`http://localhost:3010/api/cabins`)
-      .then(({ data }) => {
-        console.log(data);
-        setCardInfo(data);
-        setIsLoading(false);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
-
+  console.log(cabins);
   useEffect(() => {
-    fetchCardInfo();
-  }, []);
+    dispatch(getAllCabins());
+    return () => {
+      dispatch(reset());
+    };
+  }, [dispatch]);
 
-  if (isLoading === true) {
-    return <Spinner />
-  }
-  return (
-    <div className="home gridBodyItem">
-      {cardInfo.map((cardInfo) => {
-        return (
-          <Card
-            key={cardInfo._id}
-            city={cardInfo.city}
-            stateAbbrv={cardInfo.stateAbbrv}
-            rating={cardInfo.rating}
-            address={cardInfo.address}
-            pricePerNight={cardInfo.pricePerNight}
-          />
-        );
-      })}
-    </div>
-  );
+  if (isLoading) {
+    return <Spinner />;
+  } else
+    return (
+      <div className="home gridBodyItem">
+        {cabins.map((cardInfo) => {
+          return (
+            <Card
+              key={cardInfo._id}
+              city={cardInfo.city}
+              stateAbbrv={cardInfo.stateAbbrv}
+              rating={cardInfo.rating}
+              address={cardInfo.address}
+              pricePerNight={cardInfo.pricePerNight}
+            />
+          );
+        })}
+      </div>
+    );
 };
 
 export default Home;
