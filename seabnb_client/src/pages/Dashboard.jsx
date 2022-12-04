@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { CabinForm, Spinner, UserCabins} from "../components";
+import { CabinForm, Spinner, UserCabins } from "../components";
 import { getUserCabin, reset } from "../redux/cabinSlice";
+import "../assets/css/Dashboard.css";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ const Dashboard = () => {
     return <Spinner />;
   } else
     return (
-      <>
+      <main>
         {user && <h1>{user.name}</h1>}
         <CabinForm />
         <section>
@@ -44,7 +45,7 @@ const Dashboard = () => {
             <h3>No goals</h3>
           )}
         </section>
-      </>
+      </main>
     );
 };
 export default Dashboard;

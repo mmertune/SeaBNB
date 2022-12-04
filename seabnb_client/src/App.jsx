@@ -1,4 +1,4 @@
-import { Home, Login, Signup, Dashboard } from "./pages";
+import { Home, Login, Signup, Dashboard, AddCabin } from "./pages";
 import { Header } from "./components";
 import { Route, Routes } from "react-router-dom";
 import "./assets/css/App.css";
@@ -46,11 +46,20 @@ function App() {
             </>
           }
         />
+        <Route
+          path="/dashboard/add"
+          element={
+            <>
+              <Header search={false} />
+              <AddCabin />
+            </>
+          }
+        />
       </Routes>
       {/* <LoginModal />
       <SignupModal /> */}
       <SideModal />
-        <ToastContainer />
+      <ToastContainer />
     </div>
   );
 }

@@ -57,7 +57,8 @@ const Header = ({ search }) => {
         <MainLogo />
         <h1 className="header_logoText">seabnb</h1>
       </div> */}
-      {search === true ? (
+
+      {search === true && (
         <div className="header_searchContainer">
           <form action="submit" className="header_form">
             <label className="header_formLabel">
@@ -72,8 +73,13 @@ const Header = ({ search }) => {
             </label>
           </form>
         </div>
-      ) : (
-        <></>
+      )}
+      {search === false && user && (
+        <div className="header_dashboardLinks">
+          <Link to="/dashboard" className="header_viewCabins">My Cabins</Link>
+          <Link to="/dashboard/add" className="header_addCabin">Add Cabin</Link>
+
+        </div>
       )}
 
       <div className="header_accountContainer">
