@@ -1,0 +1,32 @@
+.login_mainContainer {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-top: 20vh;
+  flex-direction: column;
+  width: 100vw;
+  font-size: 2rem;
+}
+.login_title {
+  margin-bottom: 20px;
+}
+.login_formContainer {
+  display: flex;
+  flex-direction: column;
+}
+.login_emailInput,
+.login_passwordInput {
+  margin-bottom: 10px;
+  border-radius: 20px;
+  border: 1px black solid;
+  padding: 10px 15px;
+  font-size: 1.5rem;
+}
+.login_submitBttn {
+  background: none;
+  border-radius: 20px;
+  border: 1px black solid;
+  padding: 5px 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}

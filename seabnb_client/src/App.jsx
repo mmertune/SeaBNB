@@ -47,8 +47,8 @@ function App() {
           }
         />
       </Routes>
-      <LoginModal />
-      <SignupModal />
+      {/* <LoginModal />
+      <SignupModal /> */}
       <SideModal />
       <ToastContainer />
     </div>

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Spinner } from "../components";
 import { login, reset } from "../redux/authSlice";
+import "../assets/css/Login.css"
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -48,26 +49,28 @@ const Login = () => {
     return <Spinner />;
   }
   return (
-    <main>
-      <h1>Login</h1>
-      <form action="submit" onSubmit={submitForm}>
+    <main className="login_mainContainer">
+      <h1 className="login_title">Login</h1>
+      <form action="submit" onSubmit={submitForm} className="login_formContainer">
         <input
           type="email"
-          placeholder="email"
+          placeholder="Email"
           name="email"
           onChange={saveInput}
           value={email}
           required
+          className="login_emailInput"
         />
         <input
           type="password"
-          placeholder="password"
+          placeholder="Password"
           name="password"
           onChange={saveInput}
           value={password}
           required
+          className="login_passwordInput"
         />
-        <button>Submit</button>
+        <button className="login_submitBttn">Submit</button>
       </form>
     </main>
   );
