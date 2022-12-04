@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "../assets/css/Home.css";
 import { Card, Spinner } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCabins, reset } from "../redux/cabinSlice";
-import axios from "axios";
-// import { RiMessageFill } from "react-icons/ri";
 
 const Home = () => {
   const dispatch = useDispatch();
