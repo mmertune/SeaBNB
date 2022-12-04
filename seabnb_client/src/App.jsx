@@ -50,7 +50,7 @@ function App() {
       {/* <LoginModal />
       <SignupModal /> */}
       <SideModal />
-      <ToastContainer />
+        <ToastContainer />
     </div>
   );
 }
