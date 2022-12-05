@@ -76,9 +76,18 @@ const Header = ({ search }) => {
       )}
       {search === false && user && (
         <div className="header_dashboardLinks">
-          <Link to="/dashboard" className="header_viewCabins">My Cabins</Link>
-          <Link to="/dashboard/add" className="header_addCabin">Add Cabin</Link>
-
+          <ul className="header_listContainer">
+            <li className="header_listItem">
+              <Link to="/dashboard" className="header_viewCabins">
+                My Cabins
+              </Link>
+            </li>
+            <li className="header_listItem">
+              <Link to="/dashboard/add" className="header_addCabin">
+                Add Cabin
+              </Link>
+            </li>
+          </ul>
         </div>
       )}
 

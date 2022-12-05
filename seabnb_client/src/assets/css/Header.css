@@ -41,6 +41,17 @@
 /* .header_formLabel > input:nth-last-of-type(n + 2) {
   border-right: solid black 1px;
 } */
+.header_dashboardLinks{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.header_viewCabins,
+.header_addCabin{
+text-decoration: none;
+color: black;
+}
+
 .header_button {
   border: none;
   background: none;

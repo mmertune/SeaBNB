@@ -55,7 +55,7 @@ const Signup = () => {
     return <Spinner />;
   }
   return (
-    <main className="signup_mainContainer">
+    <main className="signup_mainContainer gridBodyItem">
       <h1 className="signup_title">Sign Up</h1>
       <form
         action="submit"
