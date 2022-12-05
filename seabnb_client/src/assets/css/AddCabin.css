@@ -1,0 +1,24 @@
+.addCabin_formContainer{
+    display: flex;
+    flex-direction: column;
+}
+.addCabin_pictureInput,
+.addCabin_cityInput,
+.addCabin_stateInput,
+.addCabin_ratingInput,
+.addCabin_addressInput,
+.addCabin_priceInput{
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: 1px black solid;
+    padding: 10px 15px;
+    font-size: 1.5rem;}
+
+.addCabin_submitBttn{
+    background: none;
+    border-radius: 20px;
+    border: 1px black solid;
+    padding: 5px 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}

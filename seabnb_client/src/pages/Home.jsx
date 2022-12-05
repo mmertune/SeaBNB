@@ -20,7 +20,7 @@ const Home = () => {
     return <Spinner />;
   } else
     return (
-      <div className="home gridBodyItem">
+      <main className="home gridBodyItem">
         {cabins.map((cardInfo) => {
           return (
             <Card
@@ -33,7 +33,7 @@ const Home = () => {
             />
           );
         })}
-      </div>
+      </main>
     );
 };
 
