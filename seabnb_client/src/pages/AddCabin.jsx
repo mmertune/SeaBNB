@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { createCabin, reset } from "../redux/cabinSlice";
 import { toast } from "react-toastify";
-// import { DropzoneArea } from 'material-ui-dropzone';
+import { DropzoneArea } from "material-ui-dropzone";
 import "../assets/css/AddCabin.css";
 
 const AddCabin = () => {
@@ -75,19 +75,20 @@ const AddCabin = () => {
       onSubmit={submitForm}
       className="addCabin_formContainer gridBodyItem"
     >
-      {/* <DropzoneArea
+      <DropzoneArea
         acceptedFiles={["image/*"]}
         dropzoneText={"Drag and drop an image here or click"}
         onChange={(files) => console.log("Files:", files)}
-      /> */}
-      <input
+      />
+      {/* <input
+>>>>>>> eaad39c6983c115128d6b926435a17efa3a5bec9
         type="file"
         name="pictures"
         placeholder="pictures"
         value={pictures}
         onChange={updateCabinInfo}
         className="addCabin_pictureInput"
-      />
+      /> */}
       <input
         type="text"
         name="city"
