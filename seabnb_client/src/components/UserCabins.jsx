@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { deleteCabin } from "../redux/cabinSlice";
+import '../assets/css/UserCabins.css'
 
 const UserCabins = ({ cabin }) => {
   const dispatch = useDispatch();

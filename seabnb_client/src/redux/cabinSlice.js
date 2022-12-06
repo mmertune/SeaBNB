@@ -30,7 +30,8 @@ export const createCabin = createAsyncThunk(
         cabinInfo,
         config
       );
-      return response.data;
+      const message = "Cabin Added";
+      return { data: response.data, message: message };
     } catch (error) {
       const message =
         (error.response &&
@@ -116,7 +117,7 @@ const cabinSlice = createSlice({
   name: "cabin",
   initialState,
   reducers: {
-    reset: (state) => initialState,
+    reset: (state) => state.initialState,
   },
   extraReducers: (builder) => {
     builder
@@ -126,11 +127,12 @@ const cabinSlice = createSlice({
       .addCase(createCabin.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.cabins.push(action.payload);
+        state.cabins.push(action.payload.data);
+        state.message = action.payload.message;
       })
       .addCase(createCabin.rejected, (state, action) => {
         state.isLoading = false;
-        state.isSuccess = true;
+        // state.isSuccess = true;
         state.message = action.payload;
       })
       .addCase(getUserCabin.pending, (state) => {
@@ -143,7 +145,7 @@ const cabinSlice = createSlice({
       })
       .addCase(getUserCabin.rejected, (state, action) => {
         state.isLoading = false;
-        state.isSuccess = true;
+        // state.isSuccess = false;
         state.message = action.payload;
       })
       .addCase(getAllCabins.pending, (state) => {

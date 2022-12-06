@@ -49,7 +49,7 @@ const Login = () => {
     return <Spinner />;
   }
   return (
-    <main className="login_mainContainer">
+    <main className="login_mainContainer gridBodyItem">
       <h1 className="login_title">Login</h1>
       <form action="submit" onSubmit={submitForm} className="login_formContainer">
         <input
