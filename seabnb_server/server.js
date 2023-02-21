@@ -3,7 +3,7 @@ const dotenv = require("dotenv").config({ path: "../.env" });
 const connectDB = require(`./config/db`);
 const { errorHandler } = require("./middleware/errorMiddleware");
 
-const port = process.env.PORT;
+// const port = process.env.PORT;
 const app = express();
 
 //connect to mongoDB database
@@ -40,6 +40,6 @@ app.use("/api/cabins/", require("./routes/cabinRoutes"));
 //middleware
 app.use(errorHandler);
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`Server started on port: ${port}`);
 });
