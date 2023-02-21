@@ -3,11 +3,11 @@ const dotenv = require("dotenv").config({ path: "../.env" });
 const connectDB = require(`./config/db`);
 const { errorHandler } = require("./middleware/errorMiddleware");
 
-// const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const app = express();
 
 //connect to mongoDB database
-connectDB();
+// connectDB();
 
 //middleware
 app.use(express.json());
@@ -29,7 +29,7 @@ app.use(function (req, res, next) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
-  
+
   next();
 });
 
@@ -40,6 +40,9 @@ app.use("/api/cabins/", require("./routes/cabinRoutes"));
 //middleware
 app.use(errorHandler);
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server started on port: ${port}`);
+//connect to mongoDB database then listen to port
+connectDB().then(() => {
+  app.listen(port, () => {
+    console.log(`Server started on port: ${port}`);
+  });
 });
