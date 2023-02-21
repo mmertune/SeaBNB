@@ -1,0 +1,20 @@
+{
+  "name": "seabnb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "main": "seabnb_server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmertune/SeaBNB.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmertune/SeaBNB/issues"
+  },
+  "homepage": "https://github.com/mmertune/SeaBNB#readme"
+}
